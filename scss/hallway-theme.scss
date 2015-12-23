@@ -1,0 +1,163 @@
+@import "hallway-vars";
+
+body {
+    font-size: 100px;
+    background-color: gray;
+}
+
+.#{$prefix}clickable {
+}
+
+.#{$prefix}wall {
+    //background-color: gray;
+    box-shadow: 5px 15px 25px black;
+}
+
+
+.#{$prefix}non-clickable {
+}
+
+
+.#{$prefix}item {
+    box-sizing: border-box;
+    //border: 1px solid black;
+}
+
+.#{$prefix}wrap {
+
+    & > nav {
+        position: absolute;
+        transform: translateZ(1vw);
+        top: 0;
+        right: 0;
+        min-width: 20vw;
+        background-color: rgba(0, 0, 0, 0.2);
+        .back, .home, .forward, button {
+            line-height: 10vh;
+            font-size: 30px;
+            display: block;
+            width: 100%;
+        }
+    }
+    
+    .#{$prefix}hallway {
+        
+        & > li {
+            //background-color: rgba(255, 0, 0, 0.5);
+            &.separator {
+                .left, .right {
+                    //@extend .#{$prefix}wall !optional;
+                    //background-color: black;
+                }
+                .top, .bottom {
+                    //background-color: gray;
+                }
+            }
+                    
+            *[data-position] {
+                &.#{$prefix}left {
+                    @extend .#{$prefix}item;
+                    
+                    &:after {
+                        content: ".";
+                        display: none;
+                        color: transparent;
+                        height: $height;
+                        width: $width;
+                        //background-color: red;
+                    }
+                    //background-color: rgba(255, 0, 255, 1);
+                }  
+                &.#{$prefix}right {
+                    @extend .#{$prefix}item;
+                    //background-color: rgba(255, 255, 0, 1);
+                }
+                &.#{$prefix}front {
+                    @extend .#{$prefix}item;
+                    //background-color: rgba(255, 0, 0, 1);
+                }
+                &.#{$prefix}behind {
+                    iframe {
+                        transform-style: preserve-3d;
+                        transform: translate3d(0,0,0);
+                        backface-visibility: visible;
+                        height: 100%;
+                        width: 100%;
+                    }
+                    @extend .#{$prefix}item;
+                    //background-color: rgba(0, 0, 255, 1);
+                }
+                &.#{$prefix}bottom {
+                    @extend .#{$prefix}item;
+                    //background-color: gray;
+                    //background-color: rgba(0, 255, 0, 1);
+                }
+                &.#{$prefix}top {
+                    @extend .#{$prefix}item;
+                    //background-color: gray;
+                }
+                &.#{$prefix}left, &.#{$prefix}right, &.#{$prefix}front, &.#{$prefix}behind {
+                    //@extend .#{$prefix}wall !optional;
+                    //background: darken(gray, 30%) !important;
+                }
+                &:hover {
+                    background: darken(gray, 30%) !important;
+                }
+            }
+
+            .#{$prefix}top {
+                @extend .#{$prefix}item;
+                //background-color: rgba(0, 255, 255, 1);
+            }
+
+            &.#{$prefix}selected {
+
+
+            }
+
+            $selector: "&." + $prefix + "root ";
+            $selectorPrefix: "";
+            $darken: 5%;
+            $color1: gray;
+            $color2: darken($color1, $darken);
+            @for $i from 0 through 4 {
+
+                #{$selector + $selectorPrefix} .#{$prefix}left[data-position] {
+                    background:  $color2;
+                    background: linear-gradient(to right, $color1 , $color2);
+                }
+                #{$selector + $selectorPrefix} .#{$prefix}right[data-position] {
+                    background:  $color2;
+                    background: linear-gradient(to left, $color1 , $color2);
+                }
+                #{$selector + $selectorPrefix} .#{$prefix}behind[data-position] {
+                    background:  $color2;
+                }
+                
+                #{$selector + $selectorPrefix} .#{$prefix}bottom[data-position] {
+                    background:  $color1;
+                    //background: linear-gradient($color2 , $color1);
+                }
+                
+                #{$selector + $selectorPrefix} .#{$prefix}top[data-position] {
+                    background:  $color2;
+                    //background: linear-gradient($color2 , $color1);
+                }
+                
+                
+
+                
+                $selectorPrefix: $selectorPrefix + " + li ";
+                $color1: darken($color1, $darken);
+                $color2: darken($color2, $darken);
+
+            }
+
+
+            .#{$prefix}right, .#{$prefix}front, .#{$prefix}behind {
+
+            }
+
+        }
+    }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<title>3d engine</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />  
+    <link href="css/hallway.css" rel="stylesheet" type="text/css" media="screen" /> 
+    <link href="css/hallway-theme.css" rel="stylesheet" type="text/css" media="screen" /> 
+</head>
+<body>
+    <div id="wrap" class="wrap">
+        <nav>
+            <button class="home">Home</button>
+            <button class="back">Back</button>
+            <button class="move-forward">Forward</button>
+            <button class="move-left">Left</button>
+            <button class="move-right">Right</button>
+        </nav>
+        
+        <div id="camera-rotate"    class="camera-rotate">
+        <div id="camera-translate" class="camera-translate" >
+        <ul id="hallway" class="hallway visible">
+            <li id="root-row" class="root">
+                <div class="left" data-position="">left</div>
+                <div class="top" data-position="">top</div>
+                <div class="bottom" data-position="">bottom</div>
+                <span class="right">
+                    <ul class="hallway">
+                        <li>
+                            <div class="bottom" data-position="">bottom</div>
+                            <div class="top" data-position="">top</div>
+                            <span class="left" data-position="f-12-1">
+                                right 1 - left 2
+                            </span>
+                            <span class="right" data-position="b-12-1">
+                                right 1 - right 2
+                            </span>
+                        </li>
+                        <li>
+                            <div class="behind" data-position="">behind</div>
+                            <div class="bottom" data-position="">bottom</div>
+                            <div class="top" data-position="">top</div>
+                            <span class="left" data-position="f-11-1">
+                                right 1 - left 1
+                            </span>
+                            <span class="right"  data-position="b-11-1">
+                                right 1 - right 1
+                            </span>
+                        </li>
+
+                    </ul>
+                </span>
+            </li>
+            <li class="">
+                <div class="left" data-position=""></div>
+                <span class="right" data-position="">right</span>
+                <div class="top" data-position="">top</div>
+                <div class="bottom" data-position="">bottom</div>
+            </li>
+            <li>
+                <div class="behind" data-position="f-10-1" data-direction="behind">behind</div>
+                <div class="bottom" data-position="f-10-1">bottom</div>
+                <div class="top" data-position="">top</div>
+                <span class="left" data-position="l-10-2">
+                    left 2
+                </span>
+                <span class="right">
+                    <ul class="hallway">
+                        <li>
+                            <span class="bottom" data-position="r-10-2">bottom</span>
+                            <div class="top" data-position="">top</div>
+                            <span class="left">
+                                <ul class="hallway">
+                                    <li>
+                                        <div class="top" data-position="">top</div>
+                                        <div class="left" data-position="">left</div>
+                                        <span class="right" data-position="">right</span>
+                                        <div class="bottom" data-position="">bottom</div>
+                                    </li>
+                                    <li>
+                                        <div class="left">
+                                            <ul class="hallway" style="z-index: 0;">
+                                                <li>
+                                                    <div class="left" data-position="">left</div>
+                                                    <div class="right" data-position="">right</div>
+                                                    <div class="top" data-position="">top</div>
+                                                    <div class="bottom" data-position="">bottom</div>
+                                                    <div class="behind" data-position="">behind</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="right" data-position="">right</div>
+                                        <div class="top" data-position="">top</div>
+                                        <div class="bottom" data-position="">bottom</div>
+                                        <div class="behind" data-position="">behind</div>
+                                    </li>
+                                </ul>
+                            </span>
+                            <span class="right" data-position="f-10-1">
+                                right 2 - right X1
+                            </span>
+                        </li>
+                        <li>
+                            <div class="behind" data-position="">behind</div>
+                            <div class="bottom" data-position="">bottom</div>
+                            <div class="top" data-position="">top</div>
+                            <span class="left" data-position="f-12-2">
+                            </span>
+                            <span class="right" data-position="r-10-2">
+                                right 2 - right X2
+                            </span>
+                        </li>
+                    </ul>
+                </span>
+            </li>
+        </ul>
+        </div>
+        </div>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="js/hallway-transforms.js"></script>
+    <script src="js/hallway-movement.js"></script>
+    <script src="js/hallway.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

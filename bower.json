@@ -1,0 +1,22 @@
+{
+  "name": "css-3d-hallway",
+  "authors": [
+    "Karel Hovorka <info@karel-hovorka.eu>"
+  ],
+  "description": "3d css transformation abstraction in form of hallways.",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
