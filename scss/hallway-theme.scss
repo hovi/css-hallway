@@ -2,14 +2,13 @@
 
 body {
     font-size: 100px;
-    background-color: gray;
+    background-color: $color;
 }
 
 .#{$prefix}clickable {
 }
 
 .#{$prefix}wall {
-    //background-color: gray;
     box-shadow: 5px 15px 25px black;
 }
 
@@ -50,7 +49,7 @@ body {
                     //background-color: black;
                 }
                 .top, .bottom {
-                    //background-color: gray;
+
                 }
             }
                     
@@ -89,19 +88,15 @@ body {
                 }
                 &.#{$prefix}bottom {
                     @extend .#{$prefix}item;
-                    //background-color: gray;
-                    //background-color: rgba(0, 255, 0, 1);
                 }
                 &.#{$prefix}top {
                     @extend .#{$prefix}item;
-                    //background-color: gray;
                 }
                 &.#{$prefix}left, &.#{$prefix}right, &.#{$prefix}front, &.#{$prefix}behind {
                     //@extend .#{$prefix}wall !optional;
-                    //background: darken(gray, 30%) !important;
                 }
                 &:hover {
-                    background: darken(gray, 30%) !important;
+                    background: darken($color, 30%) !important;
                 }
             }
 
@@ -117,8 +112,7 @@ body {
 
             $selector: "&." + $prefix + "root ";
             $selectorPrefix: "";
-            $darken: 5%;
-            $color1: gray;
+            $color1: $color;
             $color2: darken($color1, $darken);
             @for $i from 0 through 4 {
 

@@ -71,7 +71,7 @@ body {
     @extend .#{$prefix}non-clickable;
     @extend .#{$prefix}item;
     position: fixed;
-    perspective: $width * 0.9;
+    perspective: $depth * 0.9;
     perspective-origin: 50% 50%;
     
     *:not([data-position]) {
