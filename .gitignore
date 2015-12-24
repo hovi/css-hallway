@@ -6,3 +6,5 @@ bower_components
 node_modules
 /css
 TODO.txt
+.ftppass
+dist
