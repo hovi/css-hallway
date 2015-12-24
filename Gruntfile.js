@@ -37,17 +37,7 @@ module.exports = function(grunt) {
                 files: [
                     {expand: true, src: ['*.html'], dest: 'dist/', filter: 'isFile'},
                     {expand: true, src: ['js/*.js'], dest: 'dist/'},
-                    //{expand: true, src: ['css/*.*'], dest: 'dist/'},
-                    {expand: true, src: ['bower_components/**'], dest: 'dist/'},
-                     
-                // includes files within path and its sub-directories
-                //{expand: true, src: ['path/**'], dest: 'dest/'},
-
-                // makes all src relative to cwd
-                //{expand: true, cwd: 'i', src: ['**'], dest: 'dest/'},
-
-                // flattens results to a single level
-                
+                    {expand: true, src: ['bower_components/**'], dest: 'dist/'},                
                 ],
             },
         },
@@ -57,6 +47,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-ftp-deploy');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.registerTask('deploy',['clean', 'sass', 'copy', 'ftp-deploy']);
-	grunt.registerTask('default',['sass', 'watch']);
+    grunt.registerTask('build',['sass', 'copy']);
+    grunt.registerTask('deploy',['clean', 'build', 'ftp-deploy']);
+	grunt.registerTask('develop',['build', 'watch']);
+    grunt.registerTask('default',['develop']);
 }
